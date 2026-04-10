@@ -12,10 +12,13 @@ class Core {
     public function __construct()
     {
         echo 'Hello from Core class!' . "<br>";
-        $this->getUrl();
+        // dump
+        var_dump($this->getUrl());
     }
 
     public function getUrl() {
-        echo $_GET['url'] ?? 'url params NOT found!';
+        $url = rtrim($_GET['url'], '/'); // removing last forward slash /
+        $params = explode('/', $url); // creating an array of params
+        return $params;
     }
 }
