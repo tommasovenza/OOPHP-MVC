@@ -1,4 +1,12 @@
 services:
+  app:
+    image: php:8.2-apache
+    restart: unless-stopped
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:80"
+
   db:
     image: mysql:8.0
     restart: unless-stopped
@@ -8,7 +16,7 @@ services:
       MYSQL_USER: utente
       MYSQL_PASSWORD: password
     ports:
-      - '3306:3306'
+      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
 
@@ -20,7 +28,7 @@ services:
       PMA_USER: utente
       PMA_PASSWORD: password
     ports:
-      - '8080:80'
+      - "8080:80"
     depends_on:
       - db
 

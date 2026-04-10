@@ -1,3 +1,3 @@
 <?php
 
-require_once 'libraries/core.php';
+require_once 'libraries/Core.php';
