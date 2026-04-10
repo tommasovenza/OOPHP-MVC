@@ -1,9 +1,10 @@
 services:
   app:
-    image: php:8.2-apache
+    build: .
     restart: unless-stopped
     volumes:
-      - .:/var/www/html
+      - .:/var/www/html/project-MVC
+      - ./apache.conf:/etc/apache2/conf-enabled/project-mvc.conf
     ports:
       - "8000:80"
 
